@@ -20,5 +20,31 @@
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
     "strictInjectionParameters": true
-  }
+  },
+  "references": [
+    {
+      "path": "./projects/agricultor/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/agricultor/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/agricultor/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/agricultor/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/beneficio/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/beneficio/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/peso-cabal/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/peso-cabal/tsconfig.spec.json"
+    }
+  ]
 }

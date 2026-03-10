@@ -25,7 +25,7 @@ import { PesoCabalComponent } from './pages/peso-cabal/peso-cabal.component';
 
 @NgModule({
   declarations: [
-    AppComponent, AgricultorComponent, BeneficioComponent, PesoCabalComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +43,10 @@ import { PesoCabalComponent } from './pages/peso-cabal/peso-cabal.component';
         MatButtonModule,
         MatTableModule,
         MatPaginatorModule,
-        MatSortModule
+        MatSortModule,
+        AgricultorComponent,
+        BeneficioComponent,
+        PesoCabalComponent
   ],
   providers: [provideHttpClient(withInterceptorsFromDi())],
   bootstrap: [AppComponent]

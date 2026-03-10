@@ -1,25 +1,23 @@
 mat-toolbar {
-  background-color: #0d0a09 !important; /* Un tono más profundo para que el brillo resalte */
+  background-color: #0d0a09 !important;
   color: #eaddcf !important;
   height: 70px !important;
   padding: 0 8% !important;
-
-  /* Eliminamos el border-bottom simple y usamos un pseudo-elemento para el brillo */
   position: relative;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
   font-family: 'Inter', sans-serif;
 }
 
-/* La línea brillante: Usamos ::after para tener control total del grosor y brillo */
+/* línea brillante */
 mat-toolbar::after {
   content: '';
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 4px; /* Más grande (grosor de la línea) */
+  height: 4px;
 
-  /* Degradado brillante que simula luz de café/bronce */
+  /* Degradado brillante */
   background: linear-gradient(to right,
     transparent,
     #8d6e63 20%,
@@ -28,7 +26,7 @@ mat-toolbar::after {
     transparent
   );
 
-  /* El "Brillo" (Glow) */
+  /* Brillo */
   box-shadow: 0 2px 15px rgba(215, 204, 200, 0.6);
   filter: brightness(1.2);
 }
@@ -41,7 +39,6 @@ mat-toolbar::after {
   text-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
 
-/* Opcional: Un pequeño destello en el texto para acompañar la línea */
 .logo-text span {
   color: #bcaaa4;
 }

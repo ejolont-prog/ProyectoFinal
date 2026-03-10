@@ -6,11 +6,12 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule, MatCardModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatIconModule],
+  imports: [ReactiveFormsModule, MatCardModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatIconModule, MatCheckboxModule],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
@@ -30,7 +31,9 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.valid) {
       console.log("Datos de login:", this.loginForm.value);
       // Aquí iría la lógica de autenticación
-      this.router.navigate(['/agricultor']);
-    }
+      this.router.navigate(['agricultor']);
+    }else {
+         alert("El formulario no es válido. Revisa el formato del correo.");
+       }
   }
 }

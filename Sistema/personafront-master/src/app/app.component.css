@@ -1,14 +1,64 @@
-.formularioRegistro{
-    padding-left: 30%;
-    padding-right: 30%;
-    margin-top: 3%;
+mat-toolbar {
+  background-color: #0d0a09 !important; /* Un tono más profundo para que el brillo resalte */
+  color: #eaddcf !important;
+  height: 70px !important;
+  padding: 0 8% !important;
+
+  /* Eliminamos el border-bottom simple y usamos un pseudo-elemento para el brillo */
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+  font-family: 'Inter', sans-serif;
 }
 
-table {
-    width: 100%;
+/* La línea brillante: Usamos ::after para tener control total del grosor y brillo */
+mat-toolbar::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px; /* Más grande (grosor de la línea) */
+
+  /* Degradado brillante que simula luz de café/bronce */
+  background: linear-gradient(to right,
+    transparent,
+    #8d6e63 20%,
+    #d7ccc8 50%,
+    #8d6e63 80%,
+    transparent
+  );
+
+  /* El "Brillo" (Glow) */
+  box-shadow: 0 2px 15px rgba(215, 204, 200, 0.6);
+  filter: brightness(1.2);
 }
 
-.example-button-row {
-    display: table-cell;
-    width: 490px;
+.logo-text {
+  font-weight: 700;
+  font-size: 1.4rem;
+  letter-spacing: 1px;
+  color: #ffffff;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+/* Opcional: Un pequeño destello en el texto para acompañar la línea */
+.logo-text span {
+  color: #bcaaa4;
+}
+
+
+mat-toolbar span:first-child {
+  font-weight: 300;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+}
+
+mat-toolbar span:first-child::before {
+  content: '☕ ';
+  margin-right: 10px;
+}
+
+.nav-link:hover {
+  color: #ffffff;
 }

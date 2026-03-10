@@ -29,8 +29,7 @@ export class LoginComponent implements OnInit {
   onLogin() {
     if (this.loginForm.valid) {
       console.log("Datos de login:", this.loginForm.value);
-      // Aquí iría la lógica con tu servicio de autenticación
-      // Por ahora, navegamos a otra ruta para probar:
+      // Aquí iría la lógica de autenticación
       this.router.navigate(['/agricultor']);
     }
   }

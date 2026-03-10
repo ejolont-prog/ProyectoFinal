@@ -7,7 +7,6 @@ import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-// Asegúrate de tener todos estos módulos de Material para que el HTML funcione
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatExpansionModule } from '@angular/material/expansion';

@@ -1,0 +1,135 @@
+/* Contenedor Principal con Imagen */
+.login-page {
+  height: 100vh;
+  width: 100%;
+  background: url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=2070') no-repeat center center/cover;
+  position: relative;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow-y: auto; /* Permite scroll si el contenido es más alto que la pantalla en móviles */
+}
+
+.overlay {
+  background: rgba(0, 0, 0, 0.7);
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Por defecto centrado para móviles */
+  padding: 20px;
+  gap: 50px;
+  flex-wrap: wrap; /* Permite que el login baje si no hay espacio horizontal */
+}
+
+/* Tipografía */
+.hero-content {
+  text-align: center;
+}
+
+.hero-content h2 { color: white; font-size: 3.5rem; margin-bottom: 0.5rem; }
+.hero-content p { color: #ccc; font-size: 1.2rem; max-width: 400px; margin: 0 auto; }
+
+/* Card de Material */
+.login-card {
+  background: transparent !important;
+  box-shadow: none !important;
+  color: white !important;
+  width: 100%;
+  max-width: 350px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+mat-card-title {
+  font-size: 1.8rem !important;
+  margin-bottom: 2rem !important;
+  text-align: center;
+}
+
+/* Inputs Redondeados */
+/* borde redondeado y color neón */
+::ng-deep .dark-field .mdc-notched-outline__leading {
+  border-color: #d7ccc8 !important;
+  border-width: 2px !important;
+  border-radius: 30px 0 0 30px !important;
+  width: 20px !important;
+}
+
+::ng-deep .dark-field .mdc-notched-outline__trailing {
+  border-color: #d7ccc8 !important;
+  border-width: 2px !important;
+  border-radius: 0 30px 30px 0 !important;
+}
+
+::ng-deep .dark-field .mdc-notched-outline__notch {
+  border-color: #d7ccc8 !important;
+  border-width: 2px !important;
+}
+
+/* resplandor sobre el contenedor redondeado */
+::ng-deep .dark-field .mat-mdc-text-field-wrapper {
+  background-color: transparent !important;
+  border-radius: 30px !important;
+  box-shadow: 0 0 10px rgba(215, 204, 200, 0.4);
+  transition: all 0.3s ease;
+}
+
+/* Brillo intenso al hacer focus */
+::ng-deep .dark-field.mat-focused .mat-mdc-text-field-wrapper {
+  box-shadow: 0 0 20px rgba(215, 204, 200, 0.7) !important;
+}
+
+/* Botón de Login */
+.login-button {
+  width: 100%;
+  background: linear-gradient(to right, #3d2314, #7a4a2f) !important;
+  color: white !important;
+  border-radius: 30px !important;
+  height: 50px !important;
+  font-size: 1rem;
+}
+
+/* Efecto al pasar el mouse (Hover) */
+.login-button:hover:not([disabled]) {
+  box-shadow: 0 0 20px rgba(215, 204, 200, 0.8), 0 0 40px rgba(122, 74, 47, 0.4) !important;
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+
+
+.form-options {
+  text-align: right;
+  font-size: 0.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-options a { color: #bbb; text-decoration: none; }
+.form-options a:hover { color: white; }
+
+/* --- RESPONSIVE --- */
+
+/* Pantallas grandes (Desktop) */
+@media (min-width: 1024px) {
+  .overlay {
+    justify-content: flex-start; /* Alineación a la izquierda */
+    padding-left: 20%;
+  }
+
+  .hero-content {
+    text-align: left; /* Texto alineado a la izquierda en desktop */
+  }
+
+  .hero-content p {
+    margin: 0;
+  }
+}
+
+/* Pantallas medianas (Tablets) */
+@media (max-width: 1023px) {
+  .hero-content h2 { font-size: 2.5rem; }
+  .overlay {
+    flex-direction: column; /* Apila texto arriba y login abajo */
+    justify-content: center;
+    gap: 30px;
+  }
+}

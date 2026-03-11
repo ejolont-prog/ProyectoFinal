@@ -129,27 +129,33 @@
         }
       }
     },
-    "agricultor": {
+    "peso-cabal": {
       "projectType": "application",
       "schematics": {},
-      "root": "projects/agricultor",
-      "sourceRoot": "projects/agricultor/src",
+      "root": "projects/peso-cabal",
+      "sourceRoot": "projects/peso-cabal/src",
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular/build:application",
+          "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "browser": "projects/agricultor/src/main.ts",
-            "tsConfig": "projects/agricultor/tsconfig.app.json",
+            "outputPath": "dist/peso-cabal",
+            "index": "projects/peso-cabal/src/index.html",
+            "browser": "projects/peso-cabal/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "projects/peso-cabal/tsconfig.app.json",
             "assets": [
               {
                 "glob": "**/*",
-                "input": "projects/agricultor/public"
+                "input": "projects/peso-cabal/public"
               }
             ],
             "styles": [
-              "projects/agricultor/src/styles.css"
-            ]
+              "projects/peso-cabal/src/styles.css"
+            ],
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -161,8 +167,8 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "4kB",
-                  "maximumError": "8kB"
+                  "maximumWarning": "2kB",
+                  "maximumError": "4kB"
                 }
               ],
               "outputHashing": "all"
@@ -176,7 +182,96 @@
           "defaultConfiguration": "production"
         },
         "serve": {
-          "builder": "@angular/build:dev-server",
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "peso-cabal:build:production"
+            },
+            "development": {
+              "buildTarget": "peso-cabal:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "projects/peso-cabal/tsconfig.spec.json",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "projects/peso-cabal/public"
+              }
+            ],
+            "styles": [
+              "projects/peso-cabal/src/styles.css"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    },
+    "agricultor": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/agricultor",
+      "sourceRoot": "projects/agricultor/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:application",
+          "options": {
+            "outputPath": "dist/agricultor",
+            "index": "projects/agricultor/src/index.html",
+            "browser": "projects/agricultor/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "projects/agricultor/tsconfig.app.json",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "projects/agricultor/public"
+              }
+            ],
+            "styles": [
+              "projects/agricultor/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kB",
+                  "maximumError": "4kB"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
               "buildTarget": "agricultor:build:production"
@@ -187,8 +282,28 @@
           },
           "defaultConfiguration": "development"
         },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n"
+        },
         "test": {
-          "builder": "@angular/build:unit-test"
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "projects/agricultor/tsconfig.spec.json",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "projects/agricultor/public"
+              }
+            ],
+            "styles": [
+              "projects/agricultor/src/styles.css"
+            ],
+            "scripts": []
+          }
         }
       }
     },
@@ -200,9 +315,14 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular/build:application",
+          "builder": "@angular-devkit/build-angular:application",
           "options": {
+            "outputPath": "dist/beneficio",
+            "index": "projects/beneficio/src/index.html",
             "browser": "projects/beneficio/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
             "tsConfig": "projects/beneficio/tsconfig.app.json",
             "assets": [
               {
@@ -212,7 +332,8 @@
             ],
             "styles": [
               "projects/beneficio/src/styles.css"
-            ]
+            ],
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -224,8 +345,8 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "4kB",
-                  "maximumError": "8kB"
+                  "maximumWarning": "2kB",
+                  "maximumError": "4kB"
                 }
               ],
               "outputHashing": "all"
@@ -239,7 +360,7 @@
           "defaultConfiguration": "production"
         },
         "serve": {
-          "builder": "@angular/build:dev-server",
+          "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
               "buildTarget": "beneficio:build:production"
@@ -250,74 +371,32 @@
           },
           "defaultConfiguration": "development"
         },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n"
+        },
         "test": {
-          "builder": "@angular/build:unit-test"
-        }
-      }
-    },
-    "peso-cabal": {
-      "projectType": "application",
-      "schematics": {},
-      "root": "projects/peso-cabal",
-      "sourceRoot": "projects/peso-cabal/src",
-      "prefix": "app",
-      "architect": {
-        "build": {
-          "builder": "@angular/build:application",
+          "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "browser": "projects/peso-cabal/src/main.ts",
-            "tsConfig": "projects/peso-cabal/tsconfig.app.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "projects/beneficio/tsconfig.spec.json",
             "assets": [
               {
                 "glob": "**/*",
-                "input": "projects/peso-cabal/public"
+                "input": "projects/beneficio/public"
               }
             ],
             "styles": [
-              "projects/peso-cabal/src/styles.css"
-            ]
-          },
-          "configurations": {
-            "production": {
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "4kB",
-                  "maximumError": "8kB"
-                }
-              ],
-              "outputHashing": "all"
-            },
-            "development": {
-              "optimization": false,
-              "extractLicenses": false,
-              "sourceMap": true
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "serve": {
-          "builder": "@angular/build:dev-server",
-          "configurations": {
-            "production": {
-              "buildTarget": "peso-cabal:build:production"
-            },
-            "development": {
-              "buildTarget": "peso-cabal:build:development"
-            }
-          },
-          "defaultConfiguration": "development"
-        },
-        "test": {
-          "builder": "@angular/build:unit-test"
+              "projects/beneficio/src/styles.css"
+            ],
+            "scripts": []
+          }
         }
       }
-    }
+    },
+
 
   },
   "cli": {

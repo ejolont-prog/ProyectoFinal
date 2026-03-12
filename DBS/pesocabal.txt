@@ -1,0 +1,16 @@
+DROP TABLE IF EXISTS pesocabal.usuario;
+
+-- 3. Creación de la tabla con todos los campos solicitados
+CREATE TABLE pesocabal.usuario (
+    id_usuario          INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    usuario             VARCHAR(50) NOT NULL UNIQUE,
+    correo              VARCHAR(150) NOT NULL UNIQUE,
+    contrasena          TEXT NOT NULL, -- Recomendado TEXT para hashes de seguridad
+    id_rol              INTEGER NOT NULL,
+    estado              VARCHAR(20) DEFAULT 'activo',
+    creado_por          VARCHAR(50),
+    modificado_por      VARCHAR(50),
+    fecha_modificacion  TIMESTAMP,
+    fecha_creacion      TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    eliminado           BOOLEAN DEFAULT FALSE
+);

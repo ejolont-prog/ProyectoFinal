@@ -1,4 +1,5 @@
-package com.example.beneficio.rest;
+package com.example.pesoCabal.rest;
+
 
 import java.util.List;
 
@@ -9,8 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.beneficio.model.Pais;
-import com.example.beneficio.service.PaisService;
+import com.example.pesoCabal.model.Pais;
+import com.example.pesoCabal.service.PaisService;
 
 @RestController
 @CrossOrigin(origins = "*")

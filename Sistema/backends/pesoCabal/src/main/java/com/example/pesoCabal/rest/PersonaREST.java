@@ -1,4 +1,4 @@
-package com.example.beneficio.rest;
+package com.example.pesoCabal.rest;
 
 import java.net.URI;
 import java.util.List;
@@ -8,8 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.example.beneficio.model.Persona;
-import com.example.beneficio.service.PersonaService;
+import com.example.pesoCabal.model.Persona;
+import com.example.pesoCabal.service.PersonaService;
 
 @RestController
 @RequestMapping("/personas/")

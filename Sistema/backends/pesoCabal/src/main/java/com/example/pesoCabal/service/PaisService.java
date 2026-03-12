@@ -1,9 +1,9 @@
-package com.example.beneficio.service;
+package com.example.pesoCabal.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.example.beneficio.model.Pais;
-import com.example.beneficio.repository.PaisRepository;
+import com.example.pesoCabal.model.Pais;
+import com.example.pesoCabal.repository.PaisRepository;
 
 import java.util.List;
 

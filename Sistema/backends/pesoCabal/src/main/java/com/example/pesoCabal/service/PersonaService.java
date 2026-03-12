@@ -1,12 +1,12 @@
-package com.example.beneficio.service;
+package com.example.pesoCabal.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-import com.example.beneficio.model.Persona;
-import com.example.beneficio.repository.PersonaRepository;
+import com.example.pesoCabal.model.Persona;
+import com.example.pesoCabal.repository.PersonaRepository;
 
 import java.util.List;
 import java.util.Optional;

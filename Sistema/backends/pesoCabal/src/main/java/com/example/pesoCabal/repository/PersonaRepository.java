@@ -1,9 +1,9 @@
-package com.example.beneficio.repository;
+package com.example.pesoCabal.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import org.springframework.stereotype.Repository;
-import com.example.beneficio.model.Persona;
+import com.example.pesoCabal.model.Persona;
 
 import java.util.List;
 

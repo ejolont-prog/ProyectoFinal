@@ -1,12 +1,12 @@
-package com.example.beneficio.rest;
+package com.example.pesoCabal.rest;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.example.beneficio.model.Estado;
-import com.example.beneficio.service.EstadoService;
+import com.example.pesoCabal.model.Estado;
+import com.example.pesoCabal.service.EstadoService;
 
 @RestController
 @RequestMapping ("/estados/")

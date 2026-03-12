@@ -1,4 +1,4 @@
-package com.example.beneficio.model;
+package com.example.agricultor.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

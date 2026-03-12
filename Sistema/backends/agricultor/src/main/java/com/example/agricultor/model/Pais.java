@@ -1,4 +1,4 @@
-package com.example.beneficio.model;
+package com.example.agricultor.model;
 
 import jakarta.persistence.*;
 import lombok.Data;

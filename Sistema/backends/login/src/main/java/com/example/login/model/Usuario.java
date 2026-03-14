@@ -6,22 +6,24 @@ import java.io.Serializable;
 
 @Entity
 @Data
-@Table(name = "usuarios") // Es recomendable que la tabla se llame usuarios
+@Table(name = "usuario") // Sin el schema fijo
 public class Usuario implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_usuario") // Nombre real de tu PK
     private Long id;
 
-    @Column(unique = true, nullable = false)
+    @Column(name = "usuario", unique = true, nullable = false)
     private String username;
 
-    @Column(nullable = false)
+    @Column(name = "contrasena", nullable = false)
     private String password;
 
-    @Column(nullable = false)
-    private String rol; // Aquí irá "AGRICULTOR", "INGENIO", etc.
+    @Column(name = "id_rol", nullable = false)
+    private Integer rol; // Cambiado de String a Integer
 
-    private String nombre;
-    private String apellido;
+
+    private String correo;
+    private String estado;
 }

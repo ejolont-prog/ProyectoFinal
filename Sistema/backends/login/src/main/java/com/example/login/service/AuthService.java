@@ -1,10 +1,11 @@
-package com.example.login.service; // Debe coincidir con donde guardaste el archivo
+package com.example.login.service;
 
 import com.example.login.dto.LoginRequest;
 import com.example.login.model.Usuario;
 import com.example.login.repository.UsuarioRepository;
-import com.example.login.security.JwtUtil; // ¡Aquí está la magia!
+import com.example.login.security.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 import java.util.Optional;
 
@@ -15,31 +16,43 @@ public class AuthService {
     private UsuarioRepository usuarioRepository;
 
     @Autowired
+    private JdbcTemplate jdbcTemplate;
+
+    @Autowired
     private JwtUtil jwtUtil;
 
     public String authenticate(LoginRequest loginRequest) {
-        // 1. Aquí es donde ocurre la magia:
-        // Dependiendo de loginRequest.getRol(), podrías cambiar la conexión.
-        // Por ahora, buscaremos en la DB que el repositorio tenga configurada.
+        // El rol de Postman se usa SOLO para elegir el esquema.
+        String schema = loginRequest.getRol().toLowerCase().trim();
 
-        Optional<Usuario> userOpt = usuarioRepository.findByUsername(loginRequest.getUsername());
+        try {
+            // 1. Cambiamos el esquema.
+            jdbcTemplate.execute("SET search_path TO " + schema);
 
-        if (userOpt.isPresent()) {
-            Usuario usuario = userOpt.get();
+            // 2. Buscamos al usuario.
+            Optional<Usuario> userOpt = usuarioRepository.findByUsername(loginRequest.getUsername());
 
-            // 2. Validar que la contraseña coincida
-            // NOTA: En producción usa BCrypt para comparar contraseñas encriptadas
-            if (usuario.getPassword().equals(loginRequest.getPassword())) {
+            if (userOpt.isPresent()) {
+                Usuario usuario = userOpt.get();
 
-                // 3. Validar que el rol que eligió en Angular coincida con su rol en DB
-                if (usuario.getRol().equalsIgnoreCase(loginRequest.getRol())) {
+                // 3. COMPARAMOS SOLO CONTRASEÑA.
+                // AQUÍ NO HAY COMPARACIÓN DE ROL. El rol de Postman es solo para el esquema.
+                if (usuario.getPassword().equals(loginRequest.getPassword())) {
 
-                    // 4. Si todo está OK, generamos el "pasaporte" (Token)
-                    return jwtUtil.generateToken(usuario.getUsername(), usuario.getRol());
+                    // Generamos el token usando el nombre del usuario y el rol que quieras enviar al front
+                    return jwtUtil.generateToken(usuario.getUsername(), loginRequest.getRol());
+                } else {
+                    System.out.println("DEBUG: Contraseña incorrecta");
                 }
+            } else {
+                System.out.println("DEBUG: Usuario no encontrado en el esquema: " + schema);
             }
+        } catch (Exception e) {
+            System.err.println("DEBUG: Error de DB o Esquema: " + e.getMessage());
+        } finally {
+            jdbcTemplate.execute("SET search_path TO public");
         }
 
-        return null; // Si algo falla, devolvemos null o podrías lanzar una excepción
+        return null; // Si llega aquí, es "Credenciales incorrectas"
     }
 }

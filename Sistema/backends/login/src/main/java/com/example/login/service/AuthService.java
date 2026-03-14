@@ -22,7 +22,9 @@ public class AuthService {
     private JwtUtil jwtUtil;
 
     public String authenticate(LoginRequest loginRequest) {
-        // El rol de Postman se usa SOLO para elegir el esquema.
+        System.out.println("DEBUG BACKEND: Recibiendo login para: " + loginRequest.getUsername());
+        System.out.println("DEBUG BACKEND: Rol/Esquema recibido: " + loginRequest.getRol());
+
         String schema = loginRequest.getRol().toLowerCase().trim();
 
         try {

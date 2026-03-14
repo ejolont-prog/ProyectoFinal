@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CrearPesajeComponent } from './crear-pesaje.component';
+import { CrearpesajeComponent } from './crearpesaje.component';
 
-describe('CrearPesajeComponent', () => {
-  let component: CrearPesajeComponent;
-  let fixture: ComponentFixture<CrearPesajeComponent>;
+describe('CrearpesajeComponent', () => {
+  let component: CrearpesajeComponent;
+  let fixture: ComponentFixture<CrearpesajeComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CrearPesajeComponent]
+      imports: [CrearpesajeComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(CrearPesajeComponent);
+    fixture = TestBed.createComponent(CrearpesajeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

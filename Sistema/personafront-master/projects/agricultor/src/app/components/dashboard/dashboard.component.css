@@ -205,3 +205,68 @@ mat-nav-list a:hover mat-icon{
     justify-content:flex-start;
   }
 }
+
+/* =========================================
+   SOLO MODIFICACIONES PARA LA TABLA
+   ========================================= */
+
+.table-section {
+  margin-top: 50px;
+}
+
+.table-card {
+  background-color: white !important;
+  border-radius: 25px !important;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05) !important;
+  border: none !important;
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+.custom-table {
+  width: 100%;
+  background: transparent;
+}
+
+/* Estilo de los encabezados (Th) */
+.custom-table ::ng-deep .mat-mdc-header-cell {
+  color: var(--melon-text) !important;
+  font-weight: bold !important;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  padding: 20px !important;
+  border-bottom: 2px solid var(--melon-bg) !important;
+}
+
+/* Estilo de las celdas (Td) */
+.custom-table ::ng-deep .mat-mdc-cell {
+  color: var(--coffee-dark) !important;
+  padding: 20px !important;
+  font-size: 0.95rem;
+}
+
+/* Efecto Hover en las filas */
+.custom-table ::ng-deep .mat-mdc-row:hover {
+  background-color: rgba(253, 230, 216, 0.4) !important;
+}
+
+/* Botón Ver Detalle dentro de la tabla */
+.detail-btn {
+  background-color: var(--coffee-dark) !important;
+  color: white !important;
+  border-radius: 10px !important;
+  font-size: 0.8rem !important;
+  padding: 0 15px !important;
+  transition: all 0.3s ease;
+  height: 32px !important;
+  line-height: 32px !important;
+}
+
+.detail-btn:hover {
+  background-color: var(--accent-gold) !important;
+  color: var(--coffee-dark) !important;
+}

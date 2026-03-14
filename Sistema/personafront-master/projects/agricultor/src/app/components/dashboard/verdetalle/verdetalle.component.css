@@ -31,6 +31,10 @@
   margin-top: 5px;
 }
 
+.title-group strong {
+  color: var(--melon-text);
+}
+
 /* BOTONES */
 .action-buttons {
   display: flex;
@@ -94,13 +98,4 @@
 
 ::ng-deep .mat-mdc-row:hover {
   background-color: rgba(253, 230, 216, 0.3) !important;
-}
-
-.status-badge {
-  background-color: var(--melon-bg);
-  color: var(--coffee-dark);
-  padding: 5px 12px;
-  border-radius: 20px;
-  font-size: 0.8rem;
-  font-weight: bold;
 }

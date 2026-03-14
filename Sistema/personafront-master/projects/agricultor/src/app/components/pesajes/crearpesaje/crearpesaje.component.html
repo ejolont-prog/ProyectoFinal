@@ -1,0 +1,62 @@
+<div class="page-container">
+  <header class="section-header">
+    <button mat-button class="back-btn" routerLink="/pesajes">
+      <mat-icon>arrow_back</mat-icon> Regresar
+    </button>
+    <div class="title-group">
+      <h1>Nuevo Registro de Pesaje</h1>
+      <p>Inicia un nuevo ciclo de pesaje general para el control de inventario.</p>
+    </div>
+  </header>
+
+  <mat-card class="form-card">
+    <mat-card-content>
+      <form class="registro-form">
+
+
+
+        <div class="form-grid">
+          <mat-form-field appearance="outline">
+            <mat-label>Estado</mat-label>
+            <mat-select [value]="'pendiente'">
+              <mat-option value="pendiente">Pendiente</mat-option>
+              <mat-option value="en_proceso">En Proceso</mat-option>
+              <mat-option value="completado">Completado</mat-option>
+            </mat-select>
+            <mat-icon matSuffix>info</mat-icon>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Medida de Peso</mat-label>
+            <mat-select>
+              <mat-option value="kg">Kilogramos (kg)</mat-option>
+              <mat-option value="lb">Libras (lb)</mat-option>
+              <mat-option value="tn">Toneladas (tn)</mat-option>
+            </mat-select>
+            <mat-icon matSuffix>straighten</mat-icon>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Peso Total Actual</mat-label>
+            <input matInput type="number" placeholder="0.00">
+            <mat-icon matSuffix>scale</mat-icon>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Fecha Creación</mat-label>
+            <input matInput [matDatepicker]="picker" placeholder="Selecciona una fecha">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+
+        <div class="form-actions">
+          <button mat-fab extended class="create-btn" type="button" (click)="guardarPesaje()">
+            Crear
+          </button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -1,5 +1,6 @@
 <div class="login-page">
   <div class="overlay">
+
     <div class="hero-section">
       <div class="hero-content">
         <h2>Bienvenido</h2>
@@ -9,30 +10,34 @@
 
     <div class="login-container">
       <mat-card class="login-card">
+
         <mat-card-header>
           <mat-card-title>Member Login</mat-card-title>
         </mat-card-header>
 
         <mat-card-content>
+
           <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
 
             <mat-form-field appearance="outline" class="full-width dark-field">
-              <input matInput type="text" formControlName="username" placeholder="Enter your email">
-              <mat-icon matPrefix>email</mat-icon>
+              <mat-label>Email</mat-label> <mat-icon matPrefix>email</mat-icon>
+              <input matInput type="text" formControlName="username">
             </mat-form-field>
 
             <mat-form-field appearance="outline" class="full-width dark-field">
-              <input matInput type="password" formControlName="password" placeholder="Enter your password">
+              <mat-label>Password</mat-label>
               <mat-icon matPrefix>lock</mat-icon>
+              <input matInput type="password" formControlName="password">
             </mat-form-field>
 
-            <mat-form-field appearance="outline" class="full-width dark-field" floatLabel="never">
-              <mat-select formControlName="rol" placeholder="Tipo de Usuario">
-                <mat-option value="pesocabal">Administrador</mat-option>
+            <mat-form-field appearance="outline" class="full-width dark-field">
+              <mat-label>Tipo de usuario</mat-label>
+              <mat-icon matPrefix>person</mat-icon>
+              <mat-select formControlName="rol">
+                <mat-option value="admin">Administrador</mat-option>
                 <mat-option value="agricultor">Agricultor</mat-option>
-                <mat-option value="ingenio">Ingenio</mat-option>
+                <mat-option value="beneficio">Beneficio</mat-option>
               </mat-select>
-              <mat-icon matPrefix>business</mat-icon>
             </mat-form-field>
 
             <div class="form-options">
@@ -42,9 +47,13 @@
             <button mat-flat-button class="login-button" type="submit" [disabled]="loginForm.invalid">
               Login
             </button>
+
           </form>
+
         </mat-card-content>
+
       </mat-card>
     </div>
+
   </div>
 </div>

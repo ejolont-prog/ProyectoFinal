@@ -29,7 +29,7 @@ import { MatSelectModule } from '@angular/material/select';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-
+  title = 'login';
   loginForm: FormGroup;
 
   constructor(private fb: FormBuilder) {
